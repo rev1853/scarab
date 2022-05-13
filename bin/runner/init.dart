@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import '../core/flow.dart';
 import '../file_creators/env.dart';

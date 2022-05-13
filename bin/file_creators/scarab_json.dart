@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import '../core/file_creator.dart';
 import '../helper/shell_commands.dart';
 
@@ -14,7 +12,7 @@ class ScarabJson extends FileCreator {
   String get filename => "scarab.json";
 
   @override
-  String get content {
-    return readFile('scarab_json.dart', replacer: {'projectName': projectName});
-  }
+  Map<String, dynamic>? get replacer => {
+        'projectName': projectName,
+      };
 }

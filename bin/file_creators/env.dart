@@ -12,7 +12,7 @@ class Env extends FileCreator {
   String get filename => ".env";
 
   @override
-  String get content {
-    return readFile('/raw/.env.scarab', replacer: {'projectName': projectName});
-  }
+  Map<String, dynamic>? get replacer => {
+        'projectName': projectName,
+      };
 }

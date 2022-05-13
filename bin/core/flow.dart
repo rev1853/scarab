@@ -12,13 +12,17 @@ abstract class Flow {
   }
 
   Future runner(int key) async {
-    if (flow[key]['action'] is FutureOr<void> Function()) {
-      print(flow[key]['message']);
-      if (flow[key]['action'] is Future Function()) {
-        await flow[key]['action']?.call();
-      } else {
-        flow[key]['action']?.call();
+    try {
+      if (flow[key]['action'] is FutureOr<void> Function()) {
+        print(flow[key]['message']);
+        if (flow[key]['action'] is Future Function()) {
+          await flow[key]['action']?.call();
+        } else {
+          flow[key]['action']?.call();
+        }
       }
+    } catch (err) {
+      rethrow;
     }
   }
 }
