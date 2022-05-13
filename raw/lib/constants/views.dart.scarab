@@ -1,0 +1,1 @@
+enum Views { menu1, menu2 }

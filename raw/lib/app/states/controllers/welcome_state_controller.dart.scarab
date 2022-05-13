@@ -1,0 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:ventes/app/states/controllers/regular_state_controller.dart';
+
+class WelcomeStateController extends RegularStateController {}
+
+class WelcomeProperties {}

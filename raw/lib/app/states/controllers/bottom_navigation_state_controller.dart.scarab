@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ventes/app/states/controllers/regular_state_controller.dart';
+import 'package:ventes/constants/views.dart';
+import 'package:ventes/routing/navigators/menu1_navigator.dart';
+import 'package:ventes/routing/navigators/menu2_navigator.dart';
+
+class BottomNavigationStateController extends RegularStateController {
+  @override
+  get isFixedBody => false;
+
+  final _currentIndex = Views.menu1.obs;
+
+  final _navigatorKeys = {
+    Views.menu1: Get.nestedKey(Menu1Navigator.id),
+    Views.menu2: Get.nestedKey(Menu2Navigator.id),
+  };
+
+  void selectTab(Views tabItem) {
+    if (tabItem == _currentIndex.value) {
+      Get.until((route) => route.isFirst);
+    } else {
+      _currentIndex.value = tabItem;
+    }
+  }
+
+  Views get currentIndex => _currentIndex.value;
+  set currentIndex(Views value) => _currentIndex.value = value;
+  Map<Views, GlobalKey<NavigatorState>?> get navigatorKeys => _navigatorKeys;
+}

@@ -1,0 +1,4 @@
+abstract class ExampleContract {
+  void onEventSuccess(String message);
+  void onEventFailed(String message);
+}

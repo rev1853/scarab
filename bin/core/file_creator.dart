@@ -19,7 +19,7 @@ abstract class FileCreator {
     String content = File(Directory.current.absolute.path + '/' + filename).readAsStringSync();
     if (replacer != null) {
       replacer.forEach((key, value) {
-        content = content.replaceAll('{{$key}}', value);
+        content = content.replaceAll('<<$key>>', value);
       });
     }
     return content;

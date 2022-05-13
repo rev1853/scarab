@@ -1,0 +1,55 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ventes/app/states/controllers/bottom_navigation_state_controller.dart';
+import 'package:ventes/constants/views.dart';
+import 'package:ventes/core/regular_view.dart';
+import 'package:ventes/routing/navigators/menu1_navigator.dart';
+import 'package:ventes/routing/navigators/menu2_navigator.dart';
+
+class MainView extends View<BottomNavigationStateController> {
+  static const String route = "/";
+  late BottomNavigationStateController state;
+  MainView() {
+    state = controller;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async {
+        final isFirstRouteInCurrentTab = !await state.navigatorKeys[state.currentIndex]!.currentState!.maybePop();
+
+        if (isFirstRouteInCurrentTab) {
+          if (state.currentIndex != Views.menu1) {
+            state.selectTab(Views.menu1);
+            return false;
+          }
+        }
+        return isFirstRouteInCurrentTab;
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Obx(
+          () => Stack(
+            children: <Widget>[
+              Offstage(
+                offstage: state.currentIndex != Views.menu1,
+                child: Menu1Navigator(
+                  navigatorKey: state.navigatorKeys[Views.menu1]!,
+                ),
+              ),
+              Offstage(
+                offstage: state.currentIndex != Views.menu2,
+                child: Menu2Navigator(
+                  navigatorKey: state.navigatorKeys[Views.menu2]!,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

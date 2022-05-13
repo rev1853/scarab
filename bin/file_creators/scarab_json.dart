@@ -15,12 +15,6 @@ class ScarabJson extends FileCreator {
 
   @override
   String get content {
-    return JsonEncoder.withIndent('  ').convert({
-      'name': projectName,
-      'version': '0.0.1',
-      'description': '',
-      'author': '',
-      'license': '',
-    });
+    return readFile('scarab_json.dart', replacer: {'projectName': projectName});
   }
 }

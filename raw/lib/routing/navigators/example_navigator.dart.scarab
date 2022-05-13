@@ -1,0 +1,28 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ventes/app/resources/views/example.dart';
+import 'package:ventes/app/states/controllers/example_state_controller.dart';
+import 'package:ventes/core/page_route.dart';
+import 'package:ventes/core/view_navigator.dart';
+
+class ExampleNavigator extends ViewNavigator {
+  static const id = 3;
+  ExampleNavigator({required GlobalKey<NavigatorState> navigatorKey}) : super(navigatorKey: navigatorKey);
+
+  @override
+  String get initialRoute => ExampleView.route;
+
+  @override
+  Map<String, ViewRoute Function(Object? args)> get routes => {
+        ExampleView.route: (args) => ViewRoute(
+              page: () => ExampleView(),
+              bindings: [
+                BindingsBuilder(() {
+                  Get.put(ExampleStateController());
+                })
+              ],
+            ),
+      };
+}

@@ -1,0 +1,17 @@
+import 'package:get/get.dart';
+import 'package:ventes/app/states/controllers/example_state_controller.dart';
+import 'package:ventes/app/states/form_validators/example_validator.dart';
+import 'package:ventes/app/states/listeners/example_listener.dart';
+
+class ExampleFormSource {
+  late ExampleValidator validator;
+
+  final ExampleListener _listener = Get.find<ExampleListener>();
+  final ExampleProperties _properties = Get.find<ExampleProperties>();
+
+  void init() {
+    validator = ExampleValidator(this);
+  }
+
+  Map<String, dynamic> toJson() => {};
+}

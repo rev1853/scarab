@@ -1,0 +1,20 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class AuthMiddleware extends GetMiddleware {
+  @override
+  RouteSettings? redirect(String? route) {
+    bool isLogin = this.isLogin();
+    if (isLogin) {
+      return RouteSettings(name: '/login');
+    } else {
+      return null;
+    }
+  }
+
+  bool isLogin() {
+    return false;
+  }
+}
