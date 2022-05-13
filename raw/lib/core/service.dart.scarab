@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_getters_setters, prefer_const_constructors
 
 import 'package:get/get.dart';
-import 'package:ventes/core/env.dart';
+import 'package:<<projectName>>/core/env.dart';
 
 class Service extends GetConnect {
   String get api => '';

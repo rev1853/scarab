@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ventes/app/resources/views/menu2.dart';
-import 'package:ventes/app/states/controllers/menu2_state_controller.dart';
-import 'package:ventes/core/page_route.dart';
-import 'package:ventes/core/view_navigator.dart';
+import 'package:<<projectName>>/app/resources/views/menu2.dart';
+import 'package:<<projectName>>/app/states/controllers/menu2_state_controller.dart';
+import 'package:<<projectName>>/core/page_route.dart';
+import 'package:<<projectName>>/core/view_navigator.dart';
 
 class Menu2Navigator extends ViewNavigator {
   static const id = 2;

@@ -1,4 +1,4 @@
-import 'package:ventes/core/service.dart';
+import 'package:<<projectName>>/core/service.dart';
 
 class ExampleService extends Service {
   @override

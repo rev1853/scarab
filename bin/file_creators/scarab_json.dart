@@ -6,13 +6,9 @@ class ScarabJson extends FileCreator {
     ShellCommands shell,
   ) : super(shell);
 
-  String get projectName => shell.path.split('\\').last;
-
   @override
   String get filename => "scarab.json";
 
   @override
-  Map<String, dynamic>? get replacer => {
-        'projectName': projectName,
-      };
+  Map<String, dynamic>? get replacer => {};
 }

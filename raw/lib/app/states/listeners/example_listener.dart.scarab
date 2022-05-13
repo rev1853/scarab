@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:ventes/app/states/controllers/example_state_controller.dart';
-import 'package:ventes/app/states/form_sources/example_form_source.dart';
+import 'package:<<projectName>>/app/states/controllers/example_state_controller.dart';
+import 'package:<<projectName>>/app/states/form_sources/example_form_source.dart';
 
 class ExampleListener {
   final ExampleProperties _properties = Get.find<ExampleProperties>();

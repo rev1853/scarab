@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:ventes/app/resources/views/welcome.dart';
-import 'package:ventes/constants/regular_color.dart';
-import 'package:ventes/core/env.dart';
-import 'package:ventes/helpers/system/function_helper.dart';
-import 'package:ventes/routing/routes/routes.dart';
+import 'package:<<projectName>>/app/resources/views/welcome.dart';
+import 'package:<<projectName>>/constants/regular_color.dart';
+import 'package:<<projectName>>/core/env.dart';
+import 'package:<<projectName>>/helpers/system/function_helper.dart';
+import 'package:<<projectName>>/routing/routes/routes.dart';
 
 void main() async {
   await Env.init();

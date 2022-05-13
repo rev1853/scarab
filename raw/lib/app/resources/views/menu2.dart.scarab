@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:ventes/app/resources/widgets/bottom_navigation.dart';
-import 'package:ventes/app/states/controllers/menu2_state_controller.dart';
-import 'package:ventes/core/regular_view.dart';
+import 'package:<<projectName>>/app/resources/widgets/bottom_navigation.dart';
+import 'package:<<projectName>>/app/states/controllers/menu2_state_controller.dart';
+import 'package:<<projectName>>/core/regular_view.dart';
 
 class Menu2View extends View<Menu2StateController> {
   static const String route = "/menu2";

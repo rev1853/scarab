@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ventes/app/states/controllers/regular_state_controller.dart';
-import 'package:ventes/constants/views.dart';
-import 'package:ventes/routing/navigators/menu1_navigator.dart';
-import 'package:ventes/routing/navigators/menu2_navigator.dart';
+import 'package:<<projectName>>/app/states/controllers/regular_state_controller.dart';
+import 'package:<<projectName>>/constants/views.dart';
+import 'package:<<projectName>>/routing/navigators/menu1_navigator.dart';
+import 'package:<<projectName>>/routing/navigators/menu2_navigator.dart';
 
 class BottomNavigationStateController extends RegularStateController {
   @override

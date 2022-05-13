@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:ventes/constants/regular_color.dart';
-import 'package:ventes/constants/regular_size.dart';
-import 'package:ventes/constants/views.dart';
-import 'package:ventes/app/states/controllers/bottom_navigation_state_controller.dart';
-import 'package:ventes/core/regular_view.dart';
+import 'package:<<projectName>>/constants/regular_color.dart';
+import 'package:<<projectName>>/constants/regular_size.dart';
+import 'package:<<projectName>>/constants/views.dart';
+import 'package:<<projectName>>/app/states/controllers/bottom_navigation_state_controller.dart';
+import 'package:<<projectName>>/core/regular_view.dart';
 
 class BottomNavigation extends View<BottomNavigationStateController> {
   @override

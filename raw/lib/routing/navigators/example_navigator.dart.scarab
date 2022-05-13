@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ventes/app/resources/views/example.dart';
-import 'package:ventes/app/states/controllers/example_state_controller.dart';
-import 'package:ventes/core/page_route.dart';
-import 'package:ventes/core/view_navigator.dart';
+import 'package:<<projectName>>/app/resources/views/example.dart';
+import 'package:<<projectName>>/app/states/controllers/example_state_controller.dart';
+import 'package:<<projectName>>/core/page_route.dart';
+import 'package:<<projectName>>/core/view_navigator.dart';
 
 class ExampleNavigator extends ViewNavigator {
   static const id = 3;

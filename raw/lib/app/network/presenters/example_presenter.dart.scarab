@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:ventes/app/network/contracts/example_contract.dart';
-import 'package:ventes/app/network/services/example_service.dart';
+import 'package:<<projectName>>/app/network/contracts/example_contract.dart';
+import 'package:<<projectName>>/app/network/services/example_service.dart';
 
 class ExamplePresenter {
   final ExampleService _service = Get.find<ExampleService>();

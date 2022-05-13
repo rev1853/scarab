@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ventes/core/env.dart';
+import 'package:<<projectName>>/core/env.dart';
 
 MaterialColor createSwatch(Color color) {
   final hslColor = HSLColor.fromColor(color);

@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ventes/app/states/controllers/bottom_navigation_state_controller.dart';
-import 'package:ventes/constants/views.dart';
-import 'package:ventes/core/regular_view.dart';
-import 'package:ventes/routing/navigators/menu1_navigator.dart';
-import 'package:ventes/routing/navigators/menu2_navigator.dart';
+import 'package:<<projectName>>/app/states/controllers/bottom_navigation_state_controller.dart';
+import 'package:<<projectName>>/constants/views.dart';
+import 'package:<<projectName>>/core/regular_view.dart';
+import 'package:<<projectName>>/routing/navigators/menu1_navigator.dart';
+import 'package:<<projectName>>/routing/navigators/menu2_navigator.dart';
 
 class MainView extends View<BottomNavigationStateController> {
   static const String route = "/";

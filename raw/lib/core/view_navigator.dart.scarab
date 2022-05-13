@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:ventes/core/page_route.dart';
+import 'package:<<projectName>>/core/page_route.dart';
 
 abstract class ViewNavigator extends StatelessWidget {
   ViewNavigator({required this.navigatorKey});

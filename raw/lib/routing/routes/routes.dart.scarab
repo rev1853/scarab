@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get.dart';
-import 'package:ventes/app/resources/views/main.dart';
-import 'package:ventes/app/resources/views/welcome.dart';
-import 'package:ventes/app/states/controllers/bottom_navigation_state_controller.dart';
-import 'package:ventes/app/states/controllers/welcome_state_controller.dart';
-import 'package:ventes/core/page_route.dart';
+import 'package:<<projectName>>/app/resources/views/main.dart';
+import 'package:<<projectName>>/app/resources/views/welcome.dart';
+import 'package:<<projectName>>/app/states/controllers/bottom_navigation_state_controller.dart';
+import 'package:<<projectName>>/app/states/controllers/welcome_state_controller.dart';
+import 'package:<<projectName>>/core/page_route.dart';
 
 class Routes {
   static List<GetPage> get all => [
