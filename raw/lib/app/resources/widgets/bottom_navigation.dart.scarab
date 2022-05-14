@@ -33,7 +33,7 @@ class BottomNavigation extends View<BottomNavigationStateController> {
           ),
           Expanded(
             child: BottomNavigationItem(
-              icon: 'assets/svg/marker.svg',
+              icon: 'assets/svg/home.svg',
               title: "Nearby",
               view: Views.menu2,
             ),
