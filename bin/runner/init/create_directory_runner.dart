@@ -20,7 +20,9 @@ class CreateDirectoryRunner extends Flow {
   Future Function() createDirectory(String directoryName) => () async => await _shellCommand.createDirectory(directoryName);
 
   List<String> get importantDirectories => [
-        'assets',
+        'assets\\fonts',
+        'assets\\images',
+        'assets\\svg',
         'lib\\app\\models',
         'lib\\app\\network\\contracts',
         'lib\\app\\network\\services',

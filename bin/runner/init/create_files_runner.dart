@@ -1,32 +1,33 @@
 import 'dart:async';
 
 import '../../core/flow.dart';
+import '../../file_creators/assets_svg_home_svg.dart';
 import '../../file_creators/dot_env.dart';
-import '../../file_creators/lib__app__resources__views__main.dart' as views_main;
-import '../../file_creators/lib__app__resources__views__menu1.dart';
-import '../../file_creators/lib__app__resources__views__menu2.dart';
-import '../../file_creators/lib__app__resources__views__welcome.dart';
-import '../../file_creators/lib__app__resources__widgets__bottom_navigation.dart';
-import '../../file_creators/lib__app__states__controllers__bottom_navigation_state_controller.dart';
-import '../../file_creators/lib__app__states__controllers__menu1_state_controller.dart';
-import '../../file_creators/lib__app__states__controllers__menu2_state_controller.dart';
-import '../../file_creators/lib__app__states__controllers__regular_state_controller.dart';
-import '../../file_creators/lib__app__states__controllers__welcome_state_controller.dart';
-import '../../file_creators/lib__constants__app.dart';
-import '../../file_creators/lib__constants__regular_color.dart';
-import '../../file_creators/lib__constants__regular_size.dart';
-import '../../file_creators/lib__constants__views.dart';
-import '../../file_creators/lib__core__env.dart';
-import '../../file_creators/lib__core__model.dart';
-import '../../file_creators/lib__core__page_route.dart';
-import '../../file_creators/lib__core__regular_view.dart';
-import '../../file_creators/lib__core__service.dart';
-import '../../file_creators/lib__core__view_navigator.dart';
-import '../../file_creators/lib__helpers__system__function_helper.dart';
-import '../../file_creators/lib__main.dart';
-import '../../file_creators/lib__routing__navigators__menu1_navigator.dart';
-import '../../file_creators/lib__routing__navigators__menu2_navigator.dart';
-import '../../file_creators/lib__routing__routes__routes.dart';
+import '../../file_creators/lib_app_resources_views_main.dart' as views_main;
+import '../../file_creators/lib_app_resources_views_menu1.dart';
+import '../../file_creators/lib_app_resources_views_menu2.dart';
+import '../../file_creators/lib_app_resources_views_welcome.dart';
+import '../../file_creators/lib_app_resources_widgets_bottom_navigation.dart';
+import '../../file_creators/lib_app_states_controllers_bottom_navigation_state_controller.dart';
+import '../../file_creators/lib_app_states_controllers_menu1_state_controller.dart';
+import '../../file_creators/lib_app_states_controllers_menu2_state_controller.dart';
+import '../../file_creators/lib_app_states_controllers_regular_state_controller.dart';
+import '../../file_creators/lib_app_states_controllers_welcome_state_controller.dart';
+import '../../file_creators/lib_constants_app.dart';
+import '../../file_creators/lib_constants_regular_color.dart';
+import '../../file_creators/lib_constants_regular_size.dart';
+import '../../file_creators/lib_constants_views.dart';
+import '../../file_creators/lib_core_env.dart';
+import '../../file_creators/lib_core_model.dart';
+import '../../file_creators/lib_core_page_route.dart';
+import '../../file_creators/lib_core_regular_view.dart';
+import '../../file_creators/lib_core_service.dart';
+import '../../file_creators/lib_core_view_navigator.dart';
+import '../../file_creators/lib_helpers_system_function_helper.dart';
+import '../../file_creators/lib_main.dart';
+import '../../file_creators/lib_routing_navigators_menu1_navigator.dart';
+import '../../file_creators/lib_routing_navigators_menu2_navigator.dart';
+import '../../file_creators/lib_routing_routes_routes.dart';
 import '../../file_creators/pubspect_yaml.dart';
 import '../../helper/shell_commands.dart';
 
@@ -146,6 +147,10 @@ class CreateFilesRunner extends Flow {
           'message': 'Create routes/routes.dart',
           'action': routes,
         },
+        {
+          'message': 'Create assets/home.svg',
+          'action': assetsHomeSvg,
+        },
       ];
 
   Future pubspecYaml() async => await PubspecYaml(_shellCommand).create();
@@ -175,4 +180,5 @@ class CreateFilesRunner extends Flow {
   Future navigatorsMenu1Navigator() async => await Menu1Navigator(_shellCommand).create();
   Future navigatorsMenu2Navigator() async => await Menu2Navigator(_shellCommand).create();
   Future routes() async => await Routes(_shellCommand).create();
+  Future assetsHomeSvg() async => await HomeSvg(_shellCommand).create();
 }
