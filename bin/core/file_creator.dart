@@ -51,7 +51,7 @@ abstract class FileCreator {
       String filename = this.filename.replaceAll('\\', '/') + '.scarab';
       Uri url = Uri.parse('$GITHUB_RAW_URL/$filename');
       Map<String, String> headers = {
-        'Authorization': 'token $GITHUB_TOKEN',
+        'Authorization': GITHUB_TOKEN,
       };
       String response = (await http.get(url, headers: headers)).body;
       return jsonDecode(response)['content'];
