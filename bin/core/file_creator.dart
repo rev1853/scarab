@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import '../constant.dart';
+import '../helper/file_helper.dart';
 import '../helper/shell_commands.dart';
 import 'package:http/http.dart' as http;
 
@@ -21,24 +24,41 @@ abstract class FileCreator {
 
   Future create() async {
     try {
-      return await File('${shell.path}\\$filename').writeAsString(
-        (await _readFile(
-          defaultReplacer..addAll(replacer ?? {}),
-        ))!,
-      );
+      String content = (await fetchBase64Content())!;
+
+      File file = await File('${shell.path}\\$filename').create()
+        ..writeAsString('');
+      List<String> multilineContent = content.split(RegExp(r'\n'));
+
+      List<Uint8List> base64List = multilineContent.map((item) => base64.decode(item)).toList();
+      for (var item in base64List) {
+        String content = await file.readAsString();
+        await file.writeAsBytes(item);
+        String content2 = await file.readAsString();
+        await file.writeAsString(content + content2);
+      }
+
+      String fileContent = await file.readAsString();
+      await file.writeAsString(FileHelper.replaceContent(fileContent, defaultReplacer..addAll(replacer ?? {})));
     } catch (err) {
       rethrow;
     }
   }
 
-  Future<String?> _readFile(Map<String, dynamic> replacer) async {
+  Future<String?> fetchBase64Content() async {
     try {
-      Uri url = Uri.parse('$GITHUB_RAW_URL/$filename.scarab');
-      String content = (await http.get(url)).body;
-      replacer.forEach((key, value) {
-        content = content.replaceAll('<<$key>>', value);
-      });
-      return content;
+      String filename = this.filename.replaceAll('\\', '/') + '.scarab';
+      Uri url = Uri.parse('$GITHUB_RAW_URL/$filename');
+      Map<String, String> headers = {
+        'Authorization': 'token $GITHUB_TOKEN',
+      };
+      String response = (await http.get(url, headers: headers)).body;
+
+      Codec<String, String> stringToBase64 = utf8.fuse(base64);
+      return jsonDecode(response)['content'];
+      // String textContent = content.split('\n').map((content) => stringToBase64.decode(content)).join('\n');
+
+      // return FileHelper.replaceContent(textContent, replacer);
     } catch (err) {
       throw '''Cannot read file: $filename, Check your internet connection.''';
     }

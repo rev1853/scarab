@@ -1,13 +1,13 @@
 import '../core/file_creator.dart';
 import '../helper/shell_commands.dart';
 
-class ExampleModelDart extends FileCreator {
-  ExampleModelDart(
+class Service extends FileCreator {
+  Service(
     ShellCommands shell,
   ) : super(shell);
 
   @override
-  String get filename => "/lib/app/models/example_model.dart";
+  String get filename => "lib\\core\\service.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

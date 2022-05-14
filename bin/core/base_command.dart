@@ -1,6 +1,8 @@
 // ignore_for_file: invalid_return_type_for_catch_error
 import 'package:bosun/bosun.dart';
 
+import '../helper/shell_commands.dart';
+
 abstract class BaseCommand extends Command {
   BaseCommand({
     required String command,
@@ -27,7 +29,7 @@ abstract class BaseCommand extends Command {
     if (validator(args, flags)) {
       action(args, flags);
     } else {
-      print(validationMessage);
+      ShellCommands.echo(validationMessage);
     }
   }
 

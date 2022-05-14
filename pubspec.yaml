@@ -10,6 +10,7 @@ dependencies:
   bosun: ^0.2.1
   process_run: ^0.12.3+2
   http: ^0.13.4
+  console: ^4.1.0
 
 dev_dependencies:
   lints: ^1.0.0
