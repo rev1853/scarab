@@ -27,6 +27,7 @@ import '../../file_creators/lib__main.dart';
 import '../../file_creators/lib__routing__navigators__menu1_navigator.dart';
 import '../../file_creators/lib__routing__navigators__menu2_navigator.dart';
 import '../../file_creators/lib__routing__routes__routes.dart';
+import '../../file_creators/pubspect_yaml.dart';
 import '../../helper/shell_commands.dart';
 
 class CreateFilesRunner extends Flow {
@@ -37,6 +38,10 @@ class CreateFilesRunner extends Flow {
 
   @override
   List<Map<String, dynamic>> get flow => [
+        {
+          'message': 'Update pubspec.yaml',
+          'action': pubspecYaml,
+        },
         {
           'message': 'Create .env',
           'action': dotEnv,
@@ -143,6 +148,7 @@ class CreateFilesRunner extends Flow {
         },
       ];
 
+  Future pubspecYaml() async => await PubspecYaml(_shellCommand).create();
   Future dotEnv() async => await DotEnv(_shellCommand).create();
   Future mainDart() async => await Main(_shellCommand).create();
   Future viewsMain() async => await views_main.Main(_shellCommand).create();

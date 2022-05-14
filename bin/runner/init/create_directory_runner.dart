@@ -12,7 +12,7 @@ class CreateDirectoryRunner extends Flow {
         String directoryName = importantDirectories[index];
         Future Function() action = createDirectory(directoryName);
         return {
-          'message': 'create $directoryName',
+          'message': 'Create $directoryName',
           'action': action,
         };
       });

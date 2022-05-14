@@ -17,8 +17,8 @@ class ShellCommands {
     return await run(CommandList.flutterCreate(filename));
   }
 
-  Future flutterPubGet(String dependency) async {
-    return await run(CommandList.flutterPubGet(dependency));
+  Future flutterPubGet() async {
+    return await run(CommandList.flutterPubGet());
   }
 
   Future deleteFile(String path) async {
@@ -84,8 +84,8 @@ class CommandList {
     return 'flutter create $filename';
   }
 
-  static String flutterPubGet(String dependency) {
-    return 'flutter pub add $dependency';
+  static String flutterPubGet() {
+    return 'flutter pub get';
   }
 
   static String cd(String path) {

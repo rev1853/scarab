@@ -16,6 +16,7 @@ abstract class FileCreator {
   final ShellCommands shell;
   String get filename;
   Map<String, dynamic>? get replacer;
+
   late Map<String, dynamic> defaultReplacer = {
     'projectName': projectName,
   };
@@ -53,12 +54,7 @@ abstract class FileCreator {
         'Authorization': 'token $GITHUB_TOKEN',
       };
       String response = (await http.get(url, headers: headers)).body;
-
-      Codec<String, String> stringToBase64 = utf8.fuse(base64);
       return jsonDecode(response)['content'];
-      // String textContent = content.split('\n').map((content) => stringToBase64.decode(content)).join('\n');
-
-      // return FileHelper.replaceContent(textContent, replacer);
     } catch (err) {
       throw '''Cannot read file: $filename, Check your internet connection.''';
     }
