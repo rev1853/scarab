@@ -2,19 +2,20 @@
 import '../core/base_command.dart';
 import '../helper/file_helper.dart';
 import '../helper/shell_commands.dart';
+import '../runner/make/make_model_runner.dart';
 
 class MakeModelCommand extends BaseCommand {
   MakeModelCommand()
       : super(
           command: 'model',
           description: 'Make a scarab model',
-          example: "scarab make model my_model",
+          example: "scarab make model <model_name>",
         );
 
   @override
   void action(List<String> args, Map<String, dynamic> flags) async {
     try {
-      print(await FileHelper.scarabJson);
+      MakeModelRunner(args.first).run();
     } catch (err) {
       commandError(err);
     }
@@ -22,7 +23,14 @@ class MakeModelCommand extends BaseCommand {
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    return true;
+    if (FileHelper.scarabJson != null) {
+      return true;
+    }
+
+    if (args.isNotEmpty) {
+      return true;
+    }
+    return false;
   }
 
   void commandError(err) {

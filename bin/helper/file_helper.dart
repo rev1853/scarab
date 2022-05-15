@@ -9,8 +9,19 @@ class FileHelper {
     return content;
   }
 
-  static Future<Map<String, dynamic>> get scarabJson async {
-    var scarabJson = await File(Directory.current.absolute.path + '\\scarab.json').readAsString();
-    return jsonDecode(scarabJson);
+  static Map<String, dynamic>? get scarabJson {
+    final scarabJson = File('scarab.json');
+    if (!scarabJson.existsSync()) {
+      return null;
+    }
+    return jsonDecode(scarabJson.readAsStringSync());
+  }
+
+  static String toCamelCase(String snakeCase) {
+    return snakeCase.split('_').map((e) => toCapitalize(e)).join();
+  }
+
+  static String toCapitalize(String str) {
+    return str.substring(0, 1).toUpperCase() + str.substring(1);
   }
 }
