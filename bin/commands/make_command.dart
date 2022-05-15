@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_return_type_for_catch_error
 import '../core/base_command.dart';
 import 'make_model_command.dart';
+import 'make_presenter_command.dart';
 
 class MakeCommand extends BaseCommand {
   MakeCommand()
@@ -10,6 +11,7 @@ class MakeCommand extends BaseCommand {
           example: "scarab make <file> <filename>",
           subcommands: [
             MakeModelCommand(),
+            MakePresenterCommand(),
           ],
         );
 

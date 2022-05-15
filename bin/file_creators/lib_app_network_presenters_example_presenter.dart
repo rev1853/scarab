@@ -1,14 +1,12 @@
-import '../core/file_creator.dart';
+import '../core/make_file_creator.dart';
 import '../helper/shell_commands.dart';
 
-class ExamplePresenter extends FileCreator {
-  ExamplePresenter(
-    ShellCommands shell,
-  ) : super(shell);
+class Presenter extends MakeFileCreator {
+  Presenter(ShellCommands shell, String newFilename) : super(shell, newFilename);
 
   @override
   String get filename => "lib\\app\\network\\presenters\\example_presenter.dart";
 
   @override
-  Map<String, dynamic>? get replacer => {};
+  String get suffix => 'presenter';
 }
