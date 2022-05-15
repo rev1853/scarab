@@ -49,11 +49,11 @@ abstract class FileCreator {
   Future<String?> fetchBase64Content() async {
     try {
       String filename = this.filename.replaceAll('\\', '/') + '.scarab';
-      Uri url = Uri.parse('$GITHUB_RAW_URL/$filename');
-      Map<String, String> headers = {
-        'Authorization': GITHUB_TOKEN,
+      Uri url = Uri.parse(RAW_URL);
+      Map<String, String> body = {
+        'path': filename,
       };
-      String response = (await http.get(url, headers: headers)).body;
+      String response = (await http.post(url, body: body)).body;
       return jsonDecode(response)['content'];
     } catch (err) {
       throw '''Cannot read file: $filename, Check your internet connection.''';

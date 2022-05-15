@@ -1,7 +1,0 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:<<projectName>>/app/states/controllers/regular_state_controller.dart';
-
-class Menu1StateController extends RegularStateController {}
-
-class Menu1Properties {}

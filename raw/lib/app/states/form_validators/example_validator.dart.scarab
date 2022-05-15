@@ -1,6 +1,0 @@
-import 'package:<<projectName>>/app/states/form_sources/example_form_source.dart';
-
-class ExampleValidator {
-  ExampleFormSource _formSource;
-  ExampleValidator(this._formSource);
-}

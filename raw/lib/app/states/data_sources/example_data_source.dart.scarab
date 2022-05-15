@@ -1,7 +1,0 @@
-import 'package:<<projectName>>/app/network/contracts/example_contract.dart';
-import 'package:<<projectName>>/app/network/presenters/example_presenter.dart';
-
-class ExampleDataSource {
-  final ExamplePresenter _presenter = ExamplePresenter();
-  set exampleContract(ExampleContract contract) => _presenter.exampleContract = contract;
-}
