@@ -17,6 +17,8 @@ abstract class FileCreator {
   String get filename;
   Map<String, dynamic>? get replacer;
 
+  String get newFilename => filename;
+
   late Map<String, dynamic> defaultReplacer = {
     'projectName': projectName,
   };
@@ -27,7 +29,7 @@ abstract class FileCreator {
     try {
       String content = (await fetchBase64Content())!;
 
-      File file = await File('${shell.path}\\$filename').create()
+      File file = await File('${shell.path}\\$newFilename').create()
         ..writeAsString('');
       List<String> multilineContent = content.split(RegExp(r'\n'));
 

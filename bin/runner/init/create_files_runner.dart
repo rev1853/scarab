@@ -29,6 +29,7 @@ import '../../file_creators/lib_routing_navigators_menu1_navigator.dart';
 import '../../file_creators/lib_routing_navigators_menu2_navigator.dart';
 import '../../file_creators/lib_routing_routes_routes.dart';
 import '../../file_creators/pubspect_yaml.dart';
+import '../../file_creators/scarab_json.dart';
 import '../../helper/shell_commands.dart';
 
 class CreateFilesRunner extends Flow {
@@ -42,6 +43,10 @@ class CreateFilesRunner extends Flow {
         {
           'message': 'Update pubspec.yaml',
           'action': pubspecYaml,
+        },
+        {
+          'message': 'Create scarab.json',
+          'action': scarabJson,
         },
         {
           'message': 'Create .env',
@@ -154,6 +159,7 @@ class CreateFilesRunner extends Flow {
       ];
 
   Future pubspecYaml() async => await PubspecYaml(_shellCommand).create();
+  Future scarabJson() async => await ScarabJson(_shellCommand).create();
   Future dotEnv() async => await DotEnv(_shellCommand).create();
   Future mainDart() async => await Main(_shellCommand).create();
   Future viewsMain() async => await views_main.Main(_shellCommand).create();

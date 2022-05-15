@@ -1,1 +1,1 @@
-dart compile exe bin/scarab.dart -o D:/scarab-laboratory/scarab.exe
+dart compile exe bin/scarab.dart -o D:/scarab/bin/scarab.exe
