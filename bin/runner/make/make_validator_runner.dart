@@ -8,7 +8,7 @@ class MakeValidatorRunner extends MakeFlow {
   final String _fileName;
   final _shellCommand = ShellCommands();
 
-  MakeValidatorRunner(this._fileName);
+  MakeValidatorRunner(this._fileName, [int level = 1]) : super(level: level);
 
   @override
   String get fileName => "${_fileName}_validator.dart";

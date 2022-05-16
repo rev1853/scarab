@@ -9,7 +9,16 @@ class MakeViewRunner extends MakeFlow {
   final String _fileName;
   final _shellCommand = ShellCommands();
 
-  MakeViewRunner(this._fileName);
+  bool makeListener = false;
+  bool makeDataSource = false;
+  bool makeFormSource = false;
+
+  MakeViewRunner(
+    this._fileName, {
+    this.makeListener = false,
+    this.makeDataSource = false,
+    this.makeFormSource = false,
+  });
 
   @override
   String get fileName => "${_fileName}_view.dart";
@@ -25,7 +34,12 @@ class MakeViewRunner extends MakeFlow {
   List<Map<String, dynamic>> get preFlow => [
         {
           'message': 'Creating state controller',
-          'action': MakeStateControllerRunner(_fileName),
+          'action': MakeStateControllerRunner(
+            _fileName,
+            makeListener: makeListener,
+            makeDataSource: makeDataSource,
+            makeFormSource: makeFormSource,
+          ),
         }
       ];
 

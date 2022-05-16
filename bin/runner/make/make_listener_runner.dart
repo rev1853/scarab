@@ -4,10 +4,12 @@ import '../../file_creators/lib_app_states_listeners_example_listener.dart';
 import '../../helper/shell_commands.dart';
 
 class MakeListenerRunner extends MakeFlow {
+  static final String flags = 'l';
+
   final String _fileName;
   final _shellCommand = ShellCommands();
 
-  MakeListenerRunner(this._fileName);
+  MakeListenerRunner(this._fileName, [int level = 0]) : super(level: level);
 
   @override
   String get fileName => "${_fileName}_listener.dart";

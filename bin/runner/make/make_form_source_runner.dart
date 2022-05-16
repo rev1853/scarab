@@ -1,16 +1,17 @@
 import '../../core/make_file_creator.dart';
 import '../../core/make_flow.dart';
 import '../../file_creators/lib_app_states_form_sources_example_form_source.dart';
-import '../../file_creators/lib_app_states_form_validators_example_validator.dart';
 import '../../helper/file_helper.dart';
 import '../../helper/shell_commands.dart';
 import 'make_validator_runner.dart';
 
 class MakeFormSourceRunner extends MakeFlow {
+  static final String flags = 'f';
+
   final String _fileName;
   final _shellCommand = ShellCommands();
 
-  MakeFormSourceRunner(this._fileName);
+  MakeFormSourceRunner(this._fileName, [int level = 0]) : super(level: level);
 
   @override
   String get fileName => "${_fileName}_form_source.dart";
@@ -26,7 +27,7 @@ class MakeFormSourceRunner extends MakeFlow {
   List<Map<String, dynamic>> get preFlow => [
         {
           'message': "Creating validator",
-          'action': MakeValidatorRunner(_fileName),
+          'action': MakeValidatorRunner(_fileName, level + 1),
         }
       ];
 

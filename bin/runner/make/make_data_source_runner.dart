@@ -4,10 +4,11 @@ import '../../file_creators/lib_app_states_data_sources_example_data_source.dart
 import '../../helper/shell_commands.dart';
 
 class MakeDataSourceRunner extends MakeFlow {
+  static final String flags = 'd';
   final String _fileName;
   final _shellCommand = ShellCommands();
 
-  MakeDataSourceRunner(this._fileName);
+  MakeDataSourceRunner(this._fileName, [int level = 0]) : super(level: level);
 
   @override
   String get fileName => "${_fileName}_data_source.dart";
