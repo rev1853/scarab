@@ -2,20 +2,20 @@
 import '../core/base_command.dart';
 import '../helper/file_helper.dart';
 import '../helper/shell_commands.dart';
-import '../runner/make/make_model_runner.dart';
+import '../runner/make/make_form_source_runner.dart';
 
-class MakeModelCommand extends BaseCommand {
-  MakeModelCommand()
+class MakeFormSourceCommand extends BaseCommand {
+  MakeFormSourceCommand()
       : super(
-          command: 'model',
-          description: 'Make a scarab model',
-          example: "scarab make model <model_name>",
+          command: 'formsource',
+          description: 'Make a scarab formsource',
+          example: "scarab make formsource <formsource_name>",
         );
 
   @override
   void action(List<String> args, Map<String, dynamic> flags) async {
     try {
-      MakeModelRunner(args.first).run();
+      MakeFormSourceRunner(args.first).run();
     } catch (err) {
       commandError(err);
     }
@@ -34,6 +34,6 @@ class MakeModelCommand extends BaseCommand {
   }
 
   void commandError(err) {
-    ShellCommands.echo("Model name must be specified");
+    ShellCommands.echo("Form Source name must be specified");
   }
 }

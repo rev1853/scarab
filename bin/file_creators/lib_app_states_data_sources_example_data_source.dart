@@ -1,14 +1,15 @@
-import '../core/file_creator.dart';
+import '../core/make_file_creator.dart';
 import '../helper/shell_commands.dart';
 
-class ExampleDataSource extends FileCreator {
-  ExampleDataSource(
+class DataSource extends MakeFileCreator {
+  DataSource(
     ShellCommands shell,
-  ) : super(shell);
+    String newFileName,
+  ) : super(shell, newFileName);
 
   @override
   String get filename => "lib\\app\\states\\data_sources\\example_data_source.dart";
 
   @override
-  Map<String, dynamic>? get replacer => {};
+  String get suffix => 'data_source';
 }

@@ -1,14 +1,15 @@
-import '../core/file_creator.dart';
+import '../core/make_file_creator.dart';
 import '../helper/shell_commands.dart';
 
-class ExampleListener extends FileCreator {
-  ExampleListener(
+class Listener extends MakeFileCreator {
+  Listener(
     ShellCommands shell,
-  ) : super(shell);
+    String newFileName,
+  ) : super(shell, newFileName);
 
   @override
   String get filename => "lib\\app\\states\\listeners\\example_listener.dart";
 
   @override
-  Map<String, dynamic>? get replacer => {};
+  String get suffix => 'listener';
 }

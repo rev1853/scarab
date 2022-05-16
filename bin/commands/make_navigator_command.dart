@@ -23,7 +23,6 @@ class MakeNavigatorCommand extends BaseCommand {
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    print(FileHelper.scarabJson);
     if (FileHelper.scarabJson != null) {
       return true;
     }
@@ -35,7 +34,6 @@ class MakeNavigatorCommand extends BaseCommand {
   }
 
   void commandError(err) {
-    print(err);
     ShellCommands.echo("Navigator name must be specified");
   }
 }

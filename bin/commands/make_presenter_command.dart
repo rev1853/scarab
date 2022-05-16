@@ -34,7 +34,6 @@ class MakePresenterCommand extends BaseCommand {
   }
 
   void commandError(err) {
-    print(err);
     ShellCommands.echo("Presenter name must be specified");
   }
 }
