@@ -5,6 +5,7 @@ import '../helper/shell_commands.dart';
 import '../runner/make/make_data_source_runner.dart';
 import '../runner/make/make_form_source_runner.dart';
 import '../runner/make/make_listener_runner.dart';
+import '../runner/make/make_presenter_runner.dart';
 import '../runner/make/make_view_runner.dart';
 
 class MakeViewCommand extends BaseCommand {
@@ -17,6 +18,8 @@ class MakeViewCommand extends BaseCommand {
             '-${MakeListenerRunner.flags}': 'Create listener for this file',
             '-${MakeDataSourceRunner.flags}': 'Create data source for this file',
             '-${MakeFormSourceRunner.flags}': 'Create form source for this file',
+            '-${MakePresenterRunner.flags}': 'Create presenter for this file',
+            '--navigator': 'Add this view to the navigator, default to route',
           },
         );
 
@@ -29,6 +32,8 @@ class MakeViewCommand extends BaseCommand {
         makeListener: flags.containsKey(MakeListenerRunner.flags),
         makeDataSource: flags.containsKey(MakeDataSourceRunner.flags),
         makeFormSource: flags.containsKey(MakeFormSourceRunner.flags),
+        makePresenter: flags.containsKey(MakePresenterRunner.flags) && flags.containsKey(MakeDataSourceRunner.flags),
+        navigator: flags.containsKey('navigator') ? args[1] : null,
       ).run();
     } catch (err) {
       commandError(err);

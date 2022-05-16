@@ -14,12 +14,14 @@ class MakeStateControllerRunner extends MakeFlow {
   bool makeListener = false;
   bool makeDataSource = false;
   bool makeFormSource = false;
+  bool makePresenter = false;
 
   MakeStateControllerRunner(
     this._fileName, {
     this.makeListener = false,
     this.makeDataSource = false,
     this.makeFormSource = false,
+    this.makePresenter = false,
   }) : super(level: 1);
 
   @override
@@ -61,7 +63,7 @@ class MakeStateControllerRunner extends MakeFlow {
     if (makeDataSource) {
       flows.add({
         'message': 'Creating data source',
-        'action': MakeDataSourceRunner(_fileName, 2),
+        'action': MakeDataSourceRunner(_fileName, 2, makePresenter),
       });
     }
 

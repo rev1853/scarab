@@ -4,10 +4,12 @@ import '../../file_creators/lib_app_network_presenters_example_presenter.dart';
 import '../../helper/shell_commands.dart';
 
 class MakePresenterRunner extends MakeFlow {
+  static final String flags = 'p';
+
   final String _fileName;
   final _shellCommand = ShellCommands();
 
-  MakePresenterRunner(this._fileName);
+  MakePresenterRunner(this._fileName, [int level = 0]) : super(level: level);
 
   @override
   String get fileName => "${_fileName}_presenter.dart";

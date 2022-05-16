@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import '../../core/make_file_creator.dart';
 import '../../core/make_flow.dart';
 import '../../file_creators/lib_app_resources_views_example.dart';
 import '../../helper/file_helper.dart';
 import '../../helper/shell_commands.dart';
+import 'make_presenter_runner.dart';
 import 'make_state_controller_runner.dart';
 
 class MakeViewRunner extends MakeFlow {
@@ -12,12 +15,17 @@ class MakeViewRunner extends MakeFlow {
   bool makeListener = false;
   bool makeDataSource = false;
   bool makeFormSource = false;
+  bool makePresenter = false;
+
+  String? navigator;
 
   MakeViewRunner(
     this._fileName, {
     this.makeListener = false,
     this.makeDataSource = false,
     this.makeFormSource = false,
+    this.makePresenter = false,
+    this.navigator,
   });
 
   @override
@@ -31,17 +39,91 @@ class MakeViewRunner extends MakeFlow {
   String get stateControllerFileName => "${_fileName}_state_controller.dart";
 
   @override
-  List<Map<String, dynamic>> get preFlow => [
-        {
-          'message': 'Creating state controller',
-          'action': MakeStateControllerRunner(
-            _fileName,
-            makeListener: makeListener,
-            makeDataSource: makeDataSource,
-            makeFormSource: makeFormSource,
-          ),
-        }
-      ];
+  List<Map<String, dynamic>> get preFlow {
+    List<Map<String, dynamic>> flows = [
+      {
+        'message': 'Creating state controller',
+        'action': MakeStateControllerRunner(
+          _fileName,
+          makeListener: makeListener,
+          makeDataSource: makeDataSource,
+          makeFormSource: makeFormSource,
+          makePresenter: makePresenter,
+        ),
+      },
+    ];
+
+    if (navigator != null) {
+      flows.add({
+        'message': 'Add route to navigator',
+        'action': addViewToNavigator,
+      });
+    } else {
+      flows.add({
+        'message': 'Add route to route',
+        'action': addViewToRoute,
+      });
+    }
+
+    return flows;
+  }
+
+  Future addViewToNavigator() async {
+    String routeItem = '''
+        <<viewName>>View.route: (args) => ViewRoute(
+              page: () => <<viewName>>View(),
+              bindings: [
+                BindingsBuilder(() {
+                  Get.put(<<viewName>>StateController());
+                })
+              ],
+            ),
+      // please don't remove this line
+    ''';
+    String viewName = FileHelper.toCamelCase(_fileName);
+    routeItem = FileHelper.replaceContent(routeItem, {
+      "viewName": viewName,
+    });
+
+    File navigatorFile = File(Directory.current.absolute.path + "/lib/routing/navigators/${navigator}_navigator.dart");
+    String navigatorContent = await navigatorFile.readAsString();
+    navigatorContent = navigatorContent.replaceAll(
+      "// please don't remove this line",
+      routeItem,
+    );
+
+    await navigatorFile.writeAsString(navigatorContent);
+  }
+
+  Future addViewToRoute() async {
+    String routeItem = '''
+        Page(
+          name: <<viewName>>View.route,
+          page: () => <<viewName>>View(),
+          bindings: [
+            BindingsBuilder(
+              () => {
+                Get.lazyPut(() => <<viewName>>StateController()),
+              },
+            )
+          ],
+        ),
+      // please don't remove this line
+    ''';
+    String viewName = FileHelper.toCamelCase(_fileName);
+    routeItem = FileHelper.replaceContent(routeItem, {
+      "viewName": viewName,
+    });
+
+    File navigatorFile = File(Directory.current.absolute.path + "/lib/routing/routes/routes.dart");
+    String navigatorContent = await navigatorFile.readAsString();
+    navigatorContent = navigatorContent.replaceAll(
+      "// please don't remove this line",
+      routeItem,
+    );
+
+    await navigatorFile.writeAsString(navigatorContent);
+  }
 
   @override
   MakeFileCreator makeFileCreator(String filename) => AppView(
