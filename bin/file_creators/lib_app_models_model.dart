@@ -1,6 +1,4 @@
-import '../core/file_creator.dart';
 import '../core/make_file_creator.dart';
-import '../helper/file_helper.dart';
 import '../helper/shell_commands.dart';
 
 class AppModel extends MakeFileCreator {

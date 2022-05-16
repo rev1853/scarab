@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_return_type_for_catch_error
 import '../core/base_command.dart';
 import 'make_model_command.dart';
+import 'make_navigator_command.dart';
 import 'make_presenter_command.dart';
 import 'make_service_command.dart';
 
@@ -14,6 +15,7 @@ class MakeCommand extends BaseCommand {
             MakeModelCommand(),
             MakePresenterCommand(),
             MakeServiceCommand(),
+            MakeNavigatorCommand(),
           ],
         );
 

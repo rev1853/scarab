@@ -10,12 +10,17 @@ abstract class MakeFlow extends Flow {
 
   String get generatedFileName => "lib\\$libPath\\$fileName";
 
+  List<Map<String, dynamic>> get preFlow => [];
+  List<Map<String, dynamic>> get postFlow => [];
+
   @override
   List<Map<String, dynamic>> get flow => [
+        ...preFlow,
         {
           'message': 'Create file $generatedFileName',
           'action': createFile,
         },
+        ...postFlow,
       ];
 
   Future createFile() async => await makeFileCreator(generatedFileName).create();

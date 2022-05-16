@@ -1,14 +1,23 @@
-import '../core/file_creator.dart';
+import '../core/make_file_creator.dart';
 import '../helper/shell_commands.dart';
 
-class ExampleNavigator extends FileCreator {
-  ExampleNavigator(
+class Navigator extends MakeFileCreator {
+  Navigator(
     ShellCommands shell,
-  ) : super(shell);
+    String newFileName,
+    this.enumName,
+  ) : super(shell, newFileName);
+
+  String enumName;
 
   @override
   String get filename => "lib\\routing\\navigators\\example_navigator.dart";
 
   @override
-  Map<String, dynamic>? get replacer => {};
+  String get suffix => 'navigator';
+
+  @override
+  Map<String, dynamic> get additionReplacer => {
+        'viewsEnum': enumName,
+      };
 }
