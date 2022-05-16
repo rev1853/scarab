@@ -4,6 +4,8 @@ import 'flow.dart';
 import 'make_file_creator.dart';
 
 abstract class MakeFlow extends Flow {
+  MakeFlow({int level = 0}) : super(level: level);
+
   String get libPath;
   String get fileName;
   MakeFileCreator makeFileCreator(String filename);
