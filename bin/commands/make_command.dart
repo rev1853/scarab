@@ -2,6 +2,7 @@
 import '../core/base_command.dart';
 import 'make_model_command.dart';
 import 'make_presenter_command.dart';
+import 'make_service_command.dart';
 
 class MakeCommand extends BaseCommand {
   MakeCommand()
@@ -12,6 +13,7 @@ class MakeCommand extends BaseCommand {
           subcommands: [
             MakeModelCommand(),
             MakePresenterCommand(),
+            MakeServiceCommand(),
           ],
         );
 

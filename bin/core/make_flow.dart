@@ -13,7 +13,7 @@ abstract class MakeFlow extends Flow {
   @override
   List<Map<String, dynamic>> get flow => [
         {
-          'message': 'Create file $generatedFileName.dart',
+          'message': 'Create file $generatedFileName',
           'action': createFile,
         },
       ];
