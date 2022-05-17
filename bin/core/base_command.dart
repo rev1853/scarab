@@ -22,14 +22,18 @@ abstract class BaseCommand extends Command {
           supportedFlags: supportedFlags,
         );
 
-  String validationMessage = "An error was encountered";
+  String get validationMessage => "An error was encountered";
 
   @override
   void run(List<String> args, Map<String, dynamic> flags) {
-    if (validator(args, flags)) {
-      action(args, flags);
-    } else {
-      ShellCommands.echo(validationMessage);
+    try {
+      if (validator(args, flags)) {
+        action(args, flags);
+      } else {
+        ShellCommands.echo(validationMessage);
+      }
+    } catch (err) {
+      rethrow;
     }
   }
 

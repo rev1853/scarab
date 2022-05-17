@@ -25,34 +25,21 @@ class MakeViewCommand extends BaseCommand {
 
   @override
   void action(List<String> args, Map<String, dynamic> flags) async {
-    try {
-      print(flags);
-      MakeViewRunner(
-        args.first,
-        makeListener: flags.containsKey(MakeListenerRunner.flags),
-        makeDataSource: flags.containsKey(MakeDataSourceRunner.flags),
-        makeFormSource: flags.containsKey(MakeFormSourceRunner.flags),
-        makePresenter: flags.containsKey(MakePresenterRunner.flags) && flags.containsKey(MakeDataSourceRunner.flags),
-        navigator: flags.containsKey('navigator') ? args[1] : null,
-      ).run();
-    } catch (err) {
-      commandError(err);
-    }
+    MakeViewRunner(
+      args.first,
+      makeListener: flags.containsKey(MakeListenerRunner.flags),
+      makeDataSource: flags.containsKey(MakeDataSourceRunner.flags),
+      makeFormSource: flags.containsKey(MakeFormSourceRunner.flags),
+      makePresenter: flags.containsKey(MakePresenterRunner.flags) && flags.containsKey(MakeDataSourceRunner.flags),
+      navigator: flags.containsKey('navigator') ? args.first : null,
+    ).run();
   }
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    if (FileHelper.scarabJson != null) {
-      return true;
-    }
-
-    if (args.isNotEmpty) {
-      return true;
-    }
-    return false;
+    return FileHelper.scarabJson != null && args.isNotEmpty;
   }
 
-  void commandError(err) {
-    ShellCommands.echo("View name must be specified");
-  }
+  @override
+  String get validationMessage => "View name must be specified";
 }

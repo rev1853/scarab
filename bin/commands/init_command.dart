@@ -14,12 +14,8 @@ class InitCommand extends BaseCommand {
   @override
   void action(List<String> args, Map<String, dynamic> flags) async {
     String projectName = args.first;
-    try {
-      print(intro);
-      ScarabInitRunner(projectName: projectName).run();
-    } catch (err) {
-      createProjectError(err);
-    }
+    print(intro);
+    ScarabInitRunner(projectName: projectName).run();
   }
 
   @override
@@ -33,9 +29,8 @@ class InitCommand extends BaseCommand {
     ShellCommands.echo("$filename was created");
   }
 
-  void createProjectError(err) {
-    ShellCommands.echo("An error was encountered: $err");
-  }
+  @override
+  String get validationMessage => "An error was encountered, while creating the project";
 }
 
 String intro = '''

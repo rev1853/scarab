@@ -14,26 +14,14 @@ class MakeServiceCommand extends BaseCommand {
 
   @override
   void action(List<String> args, Map<String, dynamic> flags) async {
-    try {
-      MakeServiceRunner(args.first).run();
-    } catch (err) {
-      commandError(err);
-    }
+    MakeServiceRunner(args.first).run();
   }
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    if (FileHelper.scarabJson != null) {
-      return true;
-    }
-
-    if (args.isNotEmpty) {
-      return true;
-    }
-    return false;
+    return FileHelper.scarabJson != null && args.isNotEmpty;
   }
 
-  void commandError(err) {
-    ShellCommands.echo("Service name must be specified");
-  }
+  @override
+  String get validationMessage => "Service name must be specified";
 }

@@ -1,4 +1,5 @@
 // ignore_for_file: invalid_return_type_for_catch_error
+
 import '../core/base_command.dart';
 import 'make_data_source_command.dart';
 import 'make_form_source_command.dart';
@@ -28,23 +29,10 @@ class MakeCommand extends BaseCommand {
         );
 
   @override
-  void action(List<String> args, Map<String, dynamic> flags) async {}
+  void action(List<String> args, Map<String, dynamic> flags) {}
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    switch (args.first) {
-      case 'model':
-        return true;
-      case 'presenter':
-        return true;
-      case 'service':
-        return true;
-      case 'navigator':
-        return true;
-      case 'view':
-        return true;
-      default:
-        return false;
-    }
+    return true;
   }
 }

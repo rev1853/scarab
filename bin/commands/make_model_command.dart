@@ -14,26 +14,14 @@ class MakeModelCommand extends BaseCommand {
 
   @override
   void action(List<String> args, Map<String, dynamic> flags) async {
-    try {
-      MakeModelRunner(args.first).run();
-    } catch (err) {
-      commandError(err);
-    }
+    MakeModelRunner(args.first).run();
   }
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    if (FileHelper.scarabJson != null) {
-      return true;
-    }
-
-    if (args.isNotEmpty) {
-      return true;
-    }
-    return false;
+    return FileHelper.scarabJson != null && args.isNotEmpty;
   }
 
-  void commandError(err) {
-    ShellCommands.echo("Model name must be specified");
-  }
+  @override
+  String get validationMessage => "Model name must be specified";
 }

@@ -14,26 +14,14 @@ class MakePresenterCommand extends BaseCommand {
 
   @override
   void action(List<String> args, Map<String, dynamic> flags) async {
-    try {
-      MakePresenterRunner(args.first).run();
-    } catch (err) {
-      commandError(err);
-    }
+    MakePresenterRunner(args.first).run();
   }
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    if (FileHelper.scarabJson != null) {
-      return true;
-    }
-
-    if (args.isNotEmpty) {
-      return true;
-    }
-    return false;
+    return FileHelper.scarabJson != null && args.isNotEmpty;
   }
 
-  void commandError(err) {
-    ShellCommands.echo("Presenter name must be specified");
-  }
+  @override
+  String get validationMessage => "Presenter name must be specified";
 }
