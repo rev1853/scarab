@@ -15,7 +15,7 @@ class MakeListenerRunner extends MakeFlow {
   String get fileName => "${_fileName}_listener.dart";
 
   @override
-  String get libPath => "app\\states\\listeners";
+  String get libPath => "app/states/listeners";
 
   @override
   MakeFileCreator makeFileCreator(String filename) => Listener(_shellCommand, filename);

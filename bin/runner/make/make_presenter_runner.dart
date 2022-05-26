@@ -15,7 +15,7 @@ class MakePresenterRunner extends MakeFlow {
   String get fileName => "${_fileName}_presenter.dart";
 
   @override
-  String get libPath => "app\\network\\presenters";
+  String get libPath => "app/network/presenters";
 
   @override
   MakeFileCreator makeFileCreator(String filename) => Presenter(_shellCommand, filename);

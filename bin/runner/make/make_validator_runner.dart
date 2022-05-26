@@ -14,7 +14,7 @@ class MakeValidatorRunner extends MakeFlow {
   String get fileName => "${_fileName}_validator.dart";
 
   @override
-  String get libPath => "app\\states\\form_validators";
+  String get libPath => "app/states/form_validators";
 
   String get formSourceName => FileHelper.toCamelCase(_fileName) + "FormSource";
 

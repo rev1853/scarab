@@ -7,7 +7,7 @@ class Routes extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\routing\\routes\\routes.dart";
+  String get filename => "lib/routing/routes/routes.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

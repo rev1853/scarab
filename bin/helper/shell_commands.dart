@@ -66,7 +66,7 @@ class ShellCommands {
     if (index % 4 == 0) {
       code = '-';
     } else if ([1, 5].contains(index)) {
-      code = '\\';
+      code = '/';
     } else if ([2, 6].contains(index)) {
       code = '|';
     } else if ([3, 7].contains(index)) {

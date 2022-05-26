@@ -18,7 +18,7 @@ class MakeDataSourceRunner extends MakeFlow {
     this.makePresenter = false,
   ]) : super(level: level);
 
-  String get projectName => _shellCommand.path.split('\\').last;
+  String get projectName => _shellCommand.path.split('/').last;
 
   String get presenterName => FileHelper.toCamelCase(_fileName) + "Presenter";
 
@@ -47,7 +47,7 @@ class MakeDataSourceRunner extends MakeFlow {
   String get fileName => "${_fileName}_data_source.dart";
 
   @override
-  String get libPath => "app\\states\\data_sources";
+  String get libPath => "app/states/data_sources";
 
   @override
   MakeFileCreator makeFileCreator(String filename) => DataSource(

@@ -12,7 +12,7 @@ class DataSource extends MakeFileCreator {
   String presenterDeclaration, presenterImport;
 
   @override
-  String get filename => "lib\\app\\states\\data_sources\\example_data_source.dart";
+  String get filename => "lib/app/states/data_sources/example_data_source.dart";
 
   @override
   String get suffix => 'data_source';

@@ -7,7 +7,7 @@ class Welcome extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\app\\resources\\views\\welcome.dart";
+  String get filename => "lib/app/resources/views/welcome.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

@@ -5,7 +5,7 @@ class AppService extends MakeFileCreator {
   AppService(ShellCommands shell, String newFilename) : super(shell, newFilename);
 
   @override
-  String get filename => "lib\\app\\network\\services\\example_service.dart";
+  String get filename => "lib/app/network/services/example_service.dart";
 
   @override
   String get suffix => 'service';

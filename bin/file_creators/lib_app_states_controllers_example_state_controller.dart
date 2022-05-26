@@ -23,7 +23,7 @@ class StateController extends MakeFileCreator {
   String listenerDelete, dataSourceDelete, formSourceDelete;
 
   @override
-  String get filename => "lib\\app\\states\\controllers\\example_state_controller.dart";
+  String get filename => "lib/app/states/controllers/example_state_controller.dart";
 
   @override
   String get suffix => 'state_controller';

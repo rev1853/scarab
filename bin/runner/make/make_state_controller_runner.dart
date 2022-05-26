@@ -28,9 +28,9 @@ class MakeStateControllerRunner extends MakeFlow {
   String get fileName => "${_fileName}_state_controller.dart";
 
   @override
-  String get libPath => "app\\states\\controllers";
+  String get libPath => "app/states/controllers";
 
-  String get projectName => _shellCommand.path.split('\\').last;
+  String get projectName => _shellCommand.path.split('/').last;
 
   String get propertiesName => FileHelper.toCamelCase(_fileName) + "Properties";
   String get listenerName => FileHelper.toCamelCase(_fileName) + "Listener";

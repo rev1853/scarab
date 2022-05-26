@@ -7,7 +7,7 @@ class Service extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\core\\service.dart";
+  String get filename => "lib/core/service.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

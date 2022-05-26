@@ -13,7 +13,7 @@ class MakeModelRunner extends MakeFlow {
   String get fileName => "${_fileName}_model.dart";
 
   @override
-  String get libPath => "app\\models";
+  String get libPath => "app/models";
 
   @override
   MakeFileCreator makeFileCreator(String filename) => AppModel(_shellCommand, filename);

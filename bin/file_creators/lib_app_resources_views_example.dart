@@ -15,7 +15,7 @@ class AppView extends MakeFileCreator {
   String routeName;
 
   @override
-  String get filename => "lib\\app\\resources\\views\\example.dart";
+  String get filename => "lib/app/resources/views/example.dart";
 
   @override
   String get suffix => 'view';

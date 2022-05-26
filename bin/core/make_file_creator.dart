@@ -20,7 +20,7 @@ abstract class MakeFileCreator extends FileCreator {
   @override
   String get newFilename => _newFilename;
 
-  String get className => FileHelper.toCamelCase(newFilename.split('\\').last.replaceAll('_$suffix.dart', '')) + FileHelper.toCamelCase(suffix);
+  String get className => FileHelper.toCamelCase(newFilename.split('/').last.replaceAll('_$suffix.dart', '')) + FileHelper.toCamelCase(suffix);
 
   @override
   Map<String, dynamic>? get replacer => {

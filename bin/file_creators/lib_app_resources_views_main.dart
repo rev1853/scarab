@@ -7,7 +7,7 @@ class Main extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\app\\resources\\views\\main.dart";
+  String get filename => "lib/app/resources/views/main.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

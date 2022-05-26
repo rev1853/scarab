@@ -7,7 +7,7 @@ class ViewNavigator extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\core\\view_navigator.dart";
+  String get filename => "lib/core/view_navigator.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

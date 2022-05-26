@@ -13,7 +13,7 @@ class MakeServiceRunner extends MakeFlow {
   String get fileName => "${_fileName}_service.dart";
 
   @override
-  String get libPath => "app\\network\\services";
+  String get libPath => "app/network/services";
 
   @override
   MakeFileCreator makeFileCreator(String filename) => AppService(_shellCommand, filename);

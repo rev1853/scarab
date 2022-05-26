@@ -7,7 +7,7 @@ class RegularColor extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\constants\\regular_color.dart";
+  String get filename => "lib/constants/regular_color.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

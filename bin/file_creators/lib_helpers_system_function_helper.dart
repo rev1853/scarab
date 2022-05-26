@@ -7,7 +7,7 @@ class FunctionHelper extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\helpers\\system\\function_helper.dart";
+  String get filename => "lib/helpers/system/function_helper.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

@@ -7,7 +7,7 @@ class PageRoute extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\core\\page_route.dart";
+  String get filename => "lib/core/page_route.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

@@ -7,7 +7,7 @@ class Views extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\constants\\views.dart";
+  String get filename => "lib/constants/views.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

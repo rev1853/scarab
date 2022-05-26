@@ -7,7 +7,7 @@ class BottomNavigation extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\app\\resources\\widgets\\bottom_navigation.dart";
+  String get filename => "lib/app/resources/widgets/bottom_navigation.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

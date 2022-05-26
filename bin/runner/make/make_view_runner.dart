@@ -32,7 +32,7 @@ class MakeViewRunner extends MakeFlow {
   String get fileName => "${_fileName}_view.dart";
 
   @override
-  String get libPath => "app\\resources\\views";
+  String get libPath => "app/resources/views";
 
   String get routeName => _fileName.replaceAll('_', '-');
   String get stateControllerName => FileHelper.toCamelCase(_fileName) + "StateController";

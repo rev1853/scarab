@@ -7,7 +7,7 @@ class Menu1Navigator extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\routing\\navigators\\menu1_navigator.dart";
+  String get filename => "lib/routing/navigators/menu1_navigator.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

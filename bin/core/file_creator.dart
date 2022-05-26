@@ -23,13 +23,13 @@ abstract class FileCreator {
     'projectName': projectName,
   };
 
-  String get projectName => shell.path.split('\\').last;
+  String get projectName => shell.path.split('/').last;
 
   Future create() async {
     try {
       String content = (await fetchBase64Content())!;
 
-      File file = await File('${shell.path}\\$newFilename').create()
+      File file = await File('${shell.path}/$newFilename').create()
         ..writeAsString('');
       List<String> multilineContent = content.split(RegExp(r'\n'));
 
@@ -50,7 +50,7 @@ abstract class FileCreator {
 
   Future<String?> fetchBase64Content() async {
     try {
-      String filename = this.filename.replaceAll('\\', '/') + '.scarab';
+      String filename = this.filename + '.scarab';
       Uri url = Uri.parse(RAW_URL);
       Map<String, String> body = {
         'path': filename,

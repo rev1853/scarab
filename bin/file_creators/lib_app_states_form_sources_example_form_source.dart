@@ -12,7 +12,7 @@ class FormSource extends MakeFileCreator {
   String validatorName, validatorFileName;
 
   @override
-  String get filename => "lib\\app\\states\\form_sources\\example_form_source.dart";
+  String get filename => "lib/app/states/form_sources/example_form_source.dart";
 
   @override
   String get suffix => 'form_source';

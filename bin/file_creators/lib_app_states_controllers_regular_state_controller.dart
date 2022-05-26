@@ -7,7 +7,7 @@ class RegularStateController extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\app\\states\\controllers\\regular_state_controller.dart";
+  String get filename => "lib/app/states/controllers/regular_state_controller.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

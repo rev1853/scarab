@@ -7,7 +7,7 @@ class RegularSize extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\constants\\regular_size.dart";
+  String get filename => "lib/constants/regular_size.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

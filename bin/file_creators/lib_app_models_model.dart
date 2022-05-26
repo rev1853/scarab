@@ -8,7 +8,7 @@ class AppModel extends MakeFileCreator {
   ) : super(shell, newFileName);
 
   @override
-  String get filename => "lib\\app\\models\\example_model.dart";
+  String get filename => "lib/app/models/example_model.dart";
 
   @override
   String get suffix => 'model';

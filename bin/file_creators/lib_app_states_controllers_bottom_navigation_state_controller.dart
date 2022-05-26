@@ -7,7 +7,7 @@ class BottomNavigationStateController extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\app\\states\\controllers\\bottom_navigation_state_controller.dart";
+  String get filename => "lib/app/states/controllers/bottom_navigation_state_controller.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

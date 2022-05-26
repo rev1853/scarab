@@ -10,7 +10,7 @@ abstract class MakeFlow extends Flow {
   String get fileName;
   MakeFileCreator makeFileCreator(String filename);
 
-  String get generatedFileName => "lib\\$libPath\\$fileName";
+  String get generatedFileName => "lib/$libPath/$fileName";
 
   List<Map<String, dynamic>> get preFlow => [];
   List<Map<String, dynamic>> get postFlow => [];

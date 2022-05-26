@@ -11,7 +11,7 @@ main() async {
 
 Future<String?> fetchBase64Content(String filename) async {
   try {
-    String filenameFormatted = filename.replaceAll('\\', '/') + '.scarab';
+    String filenameFormatted = filename.replaceAll('/', '/') + '.scarab';
     Uri url = Uri.parse(RAW_URL);
     Map<String, String> body = {
       'path': filenameFormatted,

@@ -8,7 +8,7 @@ class Listener extends MakeFileCreator {
   ) : super(shell, newFileName);
 
   @override
-  String get filename => "lib\\app\\states\\listeners\\example_listener.dart";
+  String get filename => "lib/app/states/listeners/example_listener.dart";
 
   @override
   String get suffix => 'listener';

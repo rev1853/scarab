@@ -7,7 +7,7 @@ class ExampleContract extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\app\\network\\contracts\\example_contract.dart";
+  String get filename => "lib/app/network/contracts/example_contract.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

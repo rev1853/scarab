@@ -11,7 +11,7 @@ class Navigator extends MakeFileCreator {
   String enumName;
 
   @override
-  String get filename => "lib\\routing\\navigators\\example_navigator.dart";
+  String get filename => "lib/routing/navigators/example_navigator.dart";
 
   @override
   String get suffix => 'navigator';

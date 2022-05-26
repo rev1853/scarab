@@ -7,7 +7,7 @@ class Env extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\core\\env.dart";
+  String get filename => "lib/core/env.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

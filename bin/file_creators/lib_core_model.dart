@@ -7,7 +7,7 @@ class Model extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\core\\model.dart";
+  String get filename => "lib/core/model.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

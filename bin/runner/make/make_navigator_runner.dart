@@ -15,7 +15,7 @@ class MakeNavigatorRunner extends MakeFlow {
   String get fileName => "${_fileName}_navigator.dart";
 
   @override
-  String get libPath => "routing\\navigators";
+  String get libPath => "routing/navigators";
 
   @override
   List<Map<String, dynamic>> get preFlow => [
@@ -26,7 +26,7 @@ class MakeNavigatorRunner extends MakeFlow {
       ];
 
   Future addEnum() async {
-    File enumFile = File(Directory.current.absolute.path + '\\lib\\constants\\views.dart');
+    File enumFile = File(Directory.current.absolute.path + '/lib/constants/views.dart');
 
     String content = await enumFile.readAsString();
     content = content.replaceAll(' ', '').replaceAll('{', '').replaceAll('}', '').replaceAll('', '').replaceAll('\n', '');

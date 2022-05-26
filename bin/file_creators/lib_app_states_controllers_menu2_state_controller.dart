@@ -7,7 +7,7 @@ class Menu2StateController extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\app\\states\\controllers\\menu2_state_controller.dart";
+  String get filename => "lib/app/states/controllers/menu2_state_controller.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};

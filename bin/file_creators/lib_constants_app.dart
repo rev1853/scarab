@@ -7,7 +7,7 @@ class App extends FileCreator {
   ) : super(shell);
 
   @override
-  String get filename => "lib\\constants\\app.dart";
+  String get filename => "lib/constants/app.dart";
 
   @override
   Map<String, dynamic>? get replacer => {};
