@@ -10,7 +10,7 @@ class ShellCommands {
   String get path => _shell.path;
 
   Future createDirectory(String path) async {
-    return await run('md $path');
+    return await run('mkdir $path');
   }
 
   Future flutterCreate(String filename) async {
@@ -22,7 +22,7 @@ class ShellCommands {
   }
 
   Future deleteFile(String path) async {
-    return await run('del $path');
+    return await run('rm $path');
   }
 
   void cd(String path) {

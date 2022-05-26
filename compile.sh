@@ -1,0 +1,1 @@
+dart compile exe bin/scarab.dart -o ~/.scarab/bin/scarab.exe
