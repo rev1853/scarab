@@ -32,6 +32,7 @@ abstract class Flow {
         await ShellCommands.showProgressBar(message, Future.value(flow[key]['action']?.call()));
       }
     } catch (err) {
+      print(err);
       rethrow;
     }
   }

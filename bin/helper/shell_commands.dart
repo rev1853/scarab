@@ -3,14 +3,15 @@ import 'dart:io';
 import 'package:process_run/shell.dart';
 
 class ShellCommands {
+  Directory _currentDir = Directory.current;
   Shell _shell = Shell(
     verbose: false,
   );
 
-  String get path => _shell.path;
+  String get path => _currentDir.absolute.path;
 
   Future createDirectory(String path) async {
-    return await run('mkdir $path');
+    return await Directory(_currentDir.absolute.path + '/' + path).create(recursive: true);
   }
 
   Future flutterCreate(String filename) async {
@@ -21,12 +22,9 @@ class ShellCommands {
     return await run(CommandList.flutterPubGet());
   }
 
-  Future deleteFile(String path) async {
-    return await run('rm $path');
-  }
-
   void cd(String path) {
-    _shell = _shell.pushd(path);
+    _currentDir = Directory(_currentDir.absolute.path + '/' + path);
+    _shell = Shell(verbose: false, workingDirectory: _currentDir.absolute.path);
   }
 
   Future run(String command) {

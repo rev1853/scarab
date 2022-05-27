@@ -11,7 +11,6 @@ import '../../file_creators/lib_app_resources_widgets_bottom_navigation.dart';
 import '../../file_creators/lib_app_states_controllers_bottom_navigation_state_controller.dart';
 import '../../file_creators/lib_app_states_controllers_menu1_state_controller.dart';
 import '../../file_creators/lib_app_states_controllers_menu2_state_controller.dart';
-import '../../file_creators/lib_app_states_controllers_regular_state_controller.dart';
 import '../../file_creators/lib_app_states_controllers_welcome_state_controller.dart';
 import '../../file_creators/lib_constants_app.dart';
 import '../../file_creators/lib_constants_regular_color.dart';
@@ -87,10 +86,6 @@ class CreateFilesRunner extends Flow {
         {
           'message': 'Create controllers/menu2_state_Controller',
           'action': controllersMenu2StateController,
-        },
-        {
-          'message': 'Create controllers/regular_state_Controller',
-          'action': controllersRegularStateController,
         },
         {
           'message': 'Create controllers/welcome_state_Controller',
@@ -170,7 +165,6 @@ class CreateFilesRunner extends Flow {
   Future controllersBottomNavigationStateController() async => await BottomNavigationStateController(_shellCommand).create();
   Future controllersMenu1StateController() async => await Menu1StateController(_shellCommand).create();
   Future controllersMenu2StateController() async => await Menu2StateController(_shellCommand).create();
-  Future controllersRegularStateController() async => await RegularStateController(_shellCommand).create();
   Future controllersWelcomeStateController() async => await WelcomeStateController(_shellCommand).create();
   Future constantApp() async => await App(_shellCommand).create();
   Future constantRegularColor() async => await RegularColor(_shellCommand).create();
