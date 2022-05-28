@@ -19,7 +19,7 @@ class MakeViewCommand extends BaseCommand {
             '-${MakeDataSourceRunner.flags}': 'Create data source for this file',
             '-${MakeFormSourceRunner.flags}': 'Create form source for this file',
             '-${MakePresenterRunner.flags}': 'Create presenter for this file',
-            '--navigator': 'Add this view to the navigator, default to route',
+            '--navigator': 'Add this view to the navigator, default to route, make sure navigator was created.',
           },
         );
 
