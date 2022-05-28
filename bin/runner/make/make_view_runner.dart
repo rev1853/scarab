@@ -83,6 +83,7 @@ class MakeViewRunner extends MakeFlow {
     ''';
     String importLine = '''
       import 'package:$projectName/app/resources/views/$fileName';
+      import 'package:$projectName/app/states/controllers/$stateControllerFileName';
       // import: please dont remove this line
     ''';
     String viewName = FileHelper.toCamelCase(_fileName);
@@ -122,6 +123,7 @@ class MakeViewRunner extends MakeFlow {
     ''';
     String importLine = '''
       import 'package:$projectName/app/resources/views/$fileName';
+      import 'package:$projectName/app/states/controllers/$stateControllerFileName';
       // import: please dont remove this line
     ''';
     String viewName = FileHelper.toCamelCase(_fileName);

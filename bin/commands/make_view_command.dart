@@ -18,7 +18,7 @@ class MakeViewCommand extends BaseCommand {
             '-${MakeDataSourceRunner.flags}': 'Create data source for this file',
             '-${MakeFormSourceRunner.flags}': 'Create form source for this file',
             '-${MakePresenterRunner.flags}': 'Create presenter for this file',
-            '--navigator': 'Add this view to the navigator, default to route, make sure navigator was created.',
+            '--navigator': 'Add this view to the navigator, default to route, make sure navigator was created. --navigator <file_name> e.g. --navigator user',
           },
         );
 
@@ -30,13 +30,13 @@ class MakeViewCommand extends BaseCommand {
       makeDataSource: flags.containsKey(MakeDataSourceRunner.flags),
       makeFormSource: flags.containsKey(MakeFormSourceRunner.flags),
       makePresenter: flags.containsKey(MakePresenterRunner.flags) && flags.containsKey(MakeDataSourceRunner.flags),
-      navigator: flags.containsKey('navigator') ? args.first : null,
+      navigator: flags.containsKey('navigator') ? args[1] : null,
     ).run();
   }
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    return FileHelper.scarabJson != null && args.isNotEmpty;
+    return FileHelper.scarabJson != null && args.length == 2;
   }
 
   @override
