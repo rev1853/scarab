@@ -69,6 +69,7 @@ class MakeViewRunner extends MakeFlow {
   }
 
   Future addViewToNavigator() async {
+    String projectName = FileHelper.scarabJson!['name'];
     String routeItem = '''
         <<viewName>>View.route: (args) => ViewRoute(
               page: () => <<viewName>>View(),
@@ -79,6 +80,10 @@ class MakeViewRunner extends MakeFlow {
               ],
             ),
       // please don't remove this line
+    ''';
+    String importLine = '''
+      import 'package:$projectName/app/resources/views/$fileName';
+      // import: please dont remove this line
     ''';
     String viewName = FileHelper.toCamelCase(_fileName);
     routeItem = FileHelper.replaceContent(routeItem, {
@@ -91,11 +96,16 @@ class MakeViewRunner extends MakeFlow {
       "// please don't remove this line",
       routeItem,
     );
+    navigatorContent = navigatorContent.replaceAll(
+      "// import: please dont remove this line",
+      importLine,
+    );
 
     await navigatorFile.writeAsString(navigatorContent);
   }
 
   Future addViewToRoute() async {
+    String projectName = FileHelper.scarabJson!['name'];
     String routeItem = '''
         Page(
           name: <<viewName>>View.route,
@@ -110,6 +120,10 @@ class MakeViewRunner extends MakeFlow {
         ),
       // please don't remove this line
     ''';
+    String importLine = '''
+      import 'package:$projectName/app/resources/views/$fileName';
+      // import: please dont remove this line
+    ''';
     String viewName = FileHelper.toCamelCase(_fileName);
     routeItem = FileHelper.replaceContent(routeItem, {
       "viewName": viewName,
@@ -120,6 +134,10 @@ class MakeViewRunner extends MakeFlow {
     navigatorContent = navigatorContent.replaceAll(
       "// please don't remove this line",
       routeItem,
+    );
+    navigatorContent = navigatorContent.replaceAll(
+      "// import: please dont remove this line",
+      importLine,
     );
 
     await navigatorFile.writeAsString(navigatorContent);
