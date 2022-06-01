@@ -36,7 +36,7 @@ class MakeViewCommand extends BaseCommand {
 
   @override
   bool validator(List<String> args, Map<String, dynamic> flags) {
-    return FileHelper.scarabJson != null && args.length == 2;
+    return FileHelper.scarabJson != null && (flags.containsKey('navigator') ? args.length == 2 : args.isNotEmpty);
   }
 
   @override
